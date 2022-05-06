@@ -1,38 +1,22 @@
-import HomeAddressData.*;
-import PersonalData.*;
+import com.itextpdf.text.DocumentException;
+
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args){
-        int rowsNumber = 10;
+    public static void main(String[] args) throws DocumentException, UnsupportedEncodingException {
 
-        for (int i = 1; i <= rowsNumber; i++){
+        PrintStream printStream = new PrintStream(System.out, true, "UTF-8");
+        printStream.println("Введите целое число от 1 до 30...");
 
-            Sex sex = new Sex();
-            sex.setRandomData();
+        Scanner in = new Scanner(System.in);
+        int rowsNumber = in.nextInt();
+        in.close();
 
-            Name name = new Name(sex.getData());
-            name.setRandomData();
-
-            Surname surname = new Surname(sex.getData());
-            surname.setRandomData();
-
-            MiddleName middleName = new MiddleName(sex.getData());
-            middleName.setRandomData();
-
-            Birthdate birthdate = new Birthdate();
-            birthdate.setRandomData();
-
-            Birthplace birthplace = new Birthplace();
-            birthplace.setRandomData();
-
-            City city = new City();
-            city.setRandomData();
-
-            Home address = new Home();
-            address.setRandomData();
-
-
-        }
+        Generator pdfDoc = new Generator();
+        pdfDoc.generate(rowsNumber);
 
     }
+
 }
