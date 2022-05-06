@@ -1,4 +1,4 @@
-package SimpleParser;
+package Parser;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class FullNameParser
+public class ArrayParser
         implements SimpleParser{
     public String parse(String filePath, String tag){
         String resultData = "";

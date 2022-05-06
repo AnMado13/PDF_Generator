@@ -1,6 +1,6 @@
 package PersonalData;
 
-import SimpleParser.*;
+import Parser.*;
 
 public class Birthplace
         implements PersonalData{
@@ -25,7 +25,7 @@ public class Birthplace
     public void setRandomData(){
 
         String filePath = "./data/Russia.json";
-        SimpleParser parser = new CityParser();
+        SimpleParser parser = new ArrayOfObjectsParser();
         this.birthplace = parser.parse(filePath, "city");
 
     }

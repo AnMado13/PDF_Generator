@@ -1,6 +1,6 @@
 package PersonalData;
 
-import SimpleParser.*;
+import Parser.*;
 
 public class MiddleName
         implements PersonalData {
@@ -34,7 +34,7 @@ public class MiddleName
 
         String filePath = "./data/" + ((this.sex == "МУЖ") ? "Man.json" : "Woman.json");
 
-        SimpleParser parser = new FullNameParser();
+        SimpleParser parser = new ArrayParser();
         this.middleName = parser.parse(filePath, "middleName");
 
     }
