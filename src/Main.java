@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args){
         int rowsNumber = 10;
 
-        for (int i = 1; i < 11; i++){
+        for (int i = 1; i <= rowsNumber; i++){
 
             Sex sex = new Sex();
             sex.setRandomData();
