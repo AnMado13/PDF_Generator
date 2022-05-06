@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) throws DocumentException, UnsupportedEncodingException {
 
         PrintStream printStream = new PrintStream(System.out, true, "UTF-8");
-        printStream.println("Введите целое число от 1 до 30...");
+        printStream.println("Input:");
 
         Scanner in = new Scanner(System.in);
         int rowsNumber = in.nextInt();
@@ -16,6 +16,8 @@ public class Main {
 
         Generator pdfDoc = new Generator();
         pdfDoc.generate(rowsNumber);
+
+        printStream.println("File successfully generated at PDF_Generator/pdf/iTextTable.pdf");
 
     }
 
