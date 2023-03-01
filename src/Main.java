@@ -1,24 +1,34 @@
 import com.itextpdf.text.DocumentException;
 
 import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws DocumentException, UnsupportedEncodingException {
+    public static void main(String[] args) throws DocumentException {
 
-        PrintStream printStream = new PrintStream(System.out, true, "UTF-8");
-        printStream.println("Input:");
+        consolePrint("Input required number of rows in the table:");
 
-        Scanner in = new Scanner(System.in);
-        int rowsNumber = in.nextInt();
-        in.close();
+        int rowsNumber = consoleInput();
+        generatePdf(rowsNumber);
 
-        Generator pdfDoc = new Generator();
-        pdfDoc.generate(rowsNumber);
-
-        printStream.println("File successfully generated at PDF_Generator/pdf/iTextTable.pdf");
-
+        consolePrint("File successfully generated at PDF_Generator/pdf/iTextTable.pdf");
     }
 
+    private static int consoleInput() {
+        Scanner consoleIn = new Scanner(System.in);
+
+        return consoleIn.nextInt();
+    }
+
+    private static void consolePrint(Object output) {
+        PrintStream consoleOut = new PrintStream(System.out, true, StandardCharsets.UTF_8);
+
+        consoleOut.println(output);
+    }
+
+    private static void generatePdf(int rowsNumber) throws DocumentException {
+        PDF pdfDoc = new PDF();
+        pdfDoc.generate(rowsNumber);
+    }
 }
